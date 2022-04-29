@@ -7,7 +7,7 @@ import ReactMarkdown from "react-markdown";
 export default function SingleNews() {
   const { id } = useParams();
   const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/posts/" + id
+    "https://darkhandeed.herokuapp.com/api/posts/" + id
   );
   return (
     <div>

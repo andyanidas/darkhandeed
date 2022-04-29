@@ -9,7 +9,9 @@ import NewsCard from "./NewsCard";
 import { News } from "../types/fetch";
 
 export default function Main() {
-  const { loading, error, data } = useFetch("http://localhost:1337/api/posts");
+  const { loading, error, data } = useFetch(
+    "https://darkhandeed.herokuapp.com/api/posts"
+  );
   return (
     <div className="order-1">
       <div className="carausel order-1">

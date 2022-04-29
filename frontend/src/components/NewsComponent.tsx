@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import "../style/news.css";
 
 export default function NewsComponent() {
-  const { loading, error, data } = useFetch("http://localhost:1337/api/posts");
+  const { loading, error, data } = useFetch(
+    "https://darkhandeed.herokuapp.com/api/posts"
+  );
   console.log(data);
   return (
     <div>
