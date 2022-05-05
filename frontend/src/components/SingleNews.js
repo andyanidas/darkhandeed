@@ -19,8 +19,8 @@ export default function SingleNews() {
             <ReactMarkdown>{data?.data.attributes.body}</ReactMarkdown>
           </Card.Text>
         </Card.Body>
-        <Link to={"/"}>
-          <Button>Back to Home</Button>
+        <Link to={"/news"}>
+          <Button>Мэдээнүүд рүү буцах</Button>
         </Link>
       </Card>
     </div>

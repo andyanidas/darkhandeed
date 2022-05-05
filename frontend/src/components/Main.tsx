@@ -7,13 +7,14 @@ import { images } from "../services/otherServices";
 import useFetch from "../customHooks/useFetch";
 import NewsCard from "./NewsCard";
 import { News } from "../types/fetch";
+import { Container } from "react-bootstrap";
 
 export default function Main() {
   const { loading, error, data } = useFetch(
     "https://darkhandeed.herokuapp.com/api/posts"
   );
   return (
-    <div className="order-1">
+    <Container className="order-1">
       <div className="carausel order-1">
         <Carousel className="order-1">
           <Carousel.Item>
@@ -121,6 +122,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }

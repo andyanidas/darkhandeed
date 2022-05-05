@@ -42,28 +42,3 @@ function Header() {
 }
 
 export default Header;
-{
-  /* <ul>
-            <li>
-              <Link to="/">Нүүр Хуудас</Link>
-            </li>
-            <li>
-              <Link to="/services">Мэдээ</Link>
-            </li>
-            <li>
-              <Link to="/prices">Prices</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contuct Us</Link>
-            </li>
-            <li>
-              <Link to="/about">About Us</Link>
-            </li>
-          </ul> */
-}
-{
-  /* </div>
-        <div>{user ? user.email : <button>Нэвтрэх</button>}</div>
-      </div>
-    </div> */
-}
