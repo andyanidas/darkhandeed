@@ -6,9 +6,7 @@ import ReactMarkdown from "react-markdown";
 
 export default function SingleNews() {
   const { id } = useParams();
-  const { loading, error, data } = useFetch(
-    "https://darkhandeed.herokuapp.com/api/posts/" + id
-  );
+  const { loading, error, data } = useFetch("posts/" + id);
   return (
     <div>
       <Card>

@@ -5,16 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NewsProvider from "./contexts/NewsContext";
+import ContentProvider from "./contexts/Content";
 import { UserProvider } from "./contexts/UserContext";
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
-      <NewsProvider>
+      <ContentProvider>
         <React.StrictMode>
           <App />
         </React.StrictMode>
-      </NewsProvider>
+      </ContentProvider>
     </UserProvider>
   </BrowserRouter>,
 

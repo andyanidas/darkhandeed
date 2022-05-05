@@ -33,7 +33,7 @@ export const UserProvider: React.FC<React.ReactNode | AppContextInterface> = (
   useEffect(() => {
     const auth = getAuth(app);
     onAuthStateChanged(auth, (user) => {
-      console.log("on auth change", user);
+      // console.log("on auth change", user);
       // setUser({user:})
       // Check for user status
     });

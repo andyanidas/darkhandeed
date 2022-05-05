@@ -1,19 +1,22 @@
 .mainBG {
+  /* height: 100%;
+  width: 100vw; */
+}
+.mainBG {
   color: rgb(238, 232, 221);
-  font-family: "Poppins", sans-serif;
+  font-family: Commissioner, sans-serif;
   font-weight: 600;
-  height: 60vh;
-  width: 100%;
-  background: rgb(55, 51, 113);
+  height: 100%;
+  /* display: flex;
+  justify-content: center; */
+}
+.main {
   background: linear-gradient(
     90deg,
     rgba(55, 51, 113, 1) 0%,
     rgba(164, 164, 230, 1) 55%,
     rgba(50, 191, 219, 1) 100%
   );
-  position: absolute;
-  top: 60vh;
-  z-index: -1;
 }
 .carousel-item .d-block {
   height: 450px;

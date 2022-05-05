@@ -8,14 +8,28 @@ import useFetch from "../customHooks/useFetch";
 import NewsCard from "./NewsCard";
 import { News } from "../types/fetch";
 import { Container } from "react-bootstrap";
-
+import { useContent } from "../contexts/Content";
+interface Content {
+  id: number;
+  attributes: {
+    body: string;
+    createdAt: Date;
+    publishedAt: Date;
+    title: string;
+    updatedAt: Date;
+  };
+}
 export default function Main() {
-  const { loading, error, data } = useFetch(
-    "https://darkhandeed.herokuapp.com/api/posts"
-  );
+  const { loading, error, data } = useFetch("posts");
+  const [about, setAbout] = useState<Content | undefined>();
+  const contents = useContent();
+  useEffect(() => {
+    setAbout(contents.find((content) => content.id === 1));
+  }, [contents]);
+
   return (
-    <Container className="order-1">
-      <div className="carausel order-1">
+    <div className="main">
+      <Container className="carausel order-1">
         <Carousel className="order-1">
           <Carousel.Item>
             <img
@@ -57,22 +71,18 @@ export default function Main() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-      </div>
-      <div className="mainBG">
-        <div className="headerContent contents">
+      </Container>
+      <Container className="mainBG">
+        <div className="d-flex align-items-center mt-4">
           <div>
-            <h1>We build scaleable & smart solutions</h1>
-            <p>
-              We are passionate about creating outstanding software solutions
-              that create value for your business and lead to success
-            </p>
+            <h1 className="font-weight-bold text-uppercase ms-4">
+              {about && about?.attributes["title"]}
+            </h1>
+            <p>{about && about?.attributes["body"]}</p>
           </div>
-          <img src={mainPic} alt="" />
+          <img src="./pictures/back-to-school.png" alt="" className="w-50" />
         </div>
-        <div className="contents serviceBtn">
-          <button>Check out our services... &#8594;</button>
-        </div>
-      </div>
+      </Container>
       <div>
         <div className="part-one">
           <div className="contents secondPart">
@@ -122,6 +132,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }

@@ -7,7 +7,8 @@ import image1 from "../images/slider/1.jpeg";
 import image2 from "../images/slider/2.jpeg";
 import image3 from "../images/slider/3.jpeg";
 import slideLogo from "../images/slider/logo_name.png";
-
+import { async } from "@firebase/util";
+const URL = "https://darkhandeed.herokuapp.com/api/";
 export const images = {
   logos: {
     fb: fb,
@@ -26,17 +27,15 @@ export const images = {
   },
 };
 
-export const fetchService = async (url, method) => {
-  // switch (method) {
-  //   case "GET":
-
-  //   default:
-  //     // return await "";
-  return await fetch(url, {
+export const fetchService = async (path, method) => {
+  return await fetch(URL + path, {
     method: method,
     headers: {
       "Content-Type": "application/json",
     },
   });
   // }
+};
+export const contentFetch = async (url) => {
+  return await fetchService(url, "GET");
 };
