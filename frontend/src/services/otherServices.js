@@ -7,8 +7,8 @@ import image1 from "../images/slider/1.jpeg";
 import image2 from "../images/slider/2.jpeg";
 import image3 from "../images/slider/3.jpeg";
 import slideLogo from "../images/slider/logo_name.png";
-import { async } from "@firebase/util";
-const URL = "https://darkhandeed.herokuapp.com/api/";
+import { URL } from "../util/constants";
+
 export const images = {
   logos: {
     fb: fb,

@@ -1,8 +1,9 @@
 import { async } from "@firebase/util";
 import { useState, useEffect } from "react";
-import { FetchHook, News } from "../types/fetch";
+import { FetchHook, News, Method } from "../types/fetch";
+import { URL } from "../util/constants";
 
-export default function useFetch(url: string): FetchHook {
+export default function useFetch(url: string, method?: Method): FetchHook {
   const [data, setData] = useState<{ data: Array<News>; meta: object } | null>(
     null
   );
@@ -12,7 +13,12 @@ export default function useFetch(url: string): FetchHook {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(url);
+        const res = await fetch(URL + url, {
+          method: method ? method : "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const json = await res.json();
         setData(json);
         setLoading(false);
@@ -23,5 +29,6 @@ export default function useFetch(url: string): FetchHook {
     };
     fetchData();
   }, [url]);
+  debugger;
   return { loading, error, data };
 }

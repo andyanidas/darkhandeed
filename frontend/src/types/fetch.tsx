@@ -13,3 +13,5 @@ export interface FetchHook {
   error?: any;
   data?: any;
 }
+
+export type Method = "GET" | "PUT" | "POST" | "DELETE" | undefined | null;

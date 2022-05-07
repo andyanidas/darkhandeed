@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import mainPic from "../images/pictures/pic1.png";
 import "../style/main.css";
 import partTwoPic from "../images/pictures/part-two-pic.png";
 import { Carousel } from "react-bootstrap";
@@ -19,6 +18,16 @@ interface Content {
     updatedAt: Date;
   };
 }
+
+const partTwoStyle = {
+  backgroundImage:
+    "url(" +
+    "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" +
+    ")",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+};
 export default function Main() {
   const { loading, error, data } = useFetch("posts");
   const [about, setAbout] = useState<Content | undefined>();
@@ -26,53 +35,66 @@ export default function Main() {
   useEffect(() => {
     setAbout(contents.find((content) => content.id === 1));
   }, [contents]);
-
+  const partTwoStyle = {
+    backgroundImage:
+      "url(" +
+      "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" +
+      ")",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  };
   return (
     <div className="main">
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 h-30"
+            src={images.slide.image1}
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <img src={images.other.slideLogo} alt="" />
+            <h3>First slide label</h3>
+
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={images.slide.image2}
+            alt="Second slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 h-30"
+            src={images.slide.image3}
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
       <Container className="carausel order-1">
-        <Carousel className="order-1">
-          <Carousel.Item>
-            <img
-              className="d-block w-100 h-30"
-              src={images.slide.image1}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <img src={images.other.slideLogo} alt="" />
-              <h3>First slide label</h3>
-
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={images.slide.image2}
-              alt="Second slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 h-30"
-              src={images.slide.image3}
-              alt="Third slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+        <div className="part-two">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </Container>
-      <Container className="mainBG">
+      <Container>
         <div className="d-flex align-items-center mt-4">
           <div>
             <h1 className="font-weight-bold text-uppercase ms-4">
@@ -80,33 +102,23 @@ export default function Main() {
             </h1>
             <p>{about && about?.attributes["body"]}</p>
           </div>
-          <img src="./pictures/back-to-school.png" alt="" className="w-50" />
+          <img src="./pictures/back-to-school.png" alt="" className="w-30" />
         </div>
       </Container>
-      <div>
+      <Container>
         <div className="part-one">
-          <div className="contents secondPart">
-            <p>
-              We are a web & app development company that turns your ideas into
-              a new driving force of your business.
-            </p>
-            <p>
-              We hire brilliant web and mobile app developers to deliver
-              projects on time and maintain the top-notch code standards.
-            </p>
-          </div>
+          <p>
+            We are a web & app development company that turns your ideas into a
+            new driving force of your business.
+          </p>
+          <p>
+            We hire brilliant web and mobile app developers to deliver projects
+            on time and maintain the top-notch code standards.
+          </p>
         </div>
         <div className="part-two">
-          <img src={partTwoPic} alt="" />
           <div>
-            <h3>Custom Solutions for Your Business</h3>
-            <p>
-              Our expertise in e-commerce, adtech/martech, and people-to-people
-              fields as well as other business areas helps us develop web and
-              mobile solutions tailored with care for our clients. You can come
-              to us at any stage of your project - from just an idea to
-              architecture, from development to quality assurance and support.
-            </p>
+            <img src="" alt="" />
           </div>
         </div>
         <div className="part-three">
@@ -131,7 +143,7 @@ export default function Main() {
             <button>Get the app price &#8594;</button>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
