@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import useFetch from "../customHooks/useFetch";
+import { useFetch } from "../customHooks/useFetch";
 import { Button, Card } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import useFetch from "../customHooks/useFetch";
+import { useFetch } from "../customHooks/useFetch";
 import { News } from "../types/fetch";
 import { Link } from "react-router-dom";
 import "../style/news.css";

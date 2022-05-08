@@ -1,23 +1,21 @@
 {
   "files": {
-    "main.css": "/darkhandeed/static/css/main.b223a9df.css",
-    "main.js": "/darkhandeed/static/js/main.2651787f.js",
-    "static/js/787.52fe08d9.chunk.js": "/darkhandeed/static/js/787.52fe08d9.chunk.js",
-    "static/media/1.jpeg": "/darkhandeed/static/media/1.0b7f4142f7296efa05a8.jpeg",
-    "static/media/2.jpeg": "/darkhandeed/static/media/2.5cc7dd75aacb8bab042a.jpeg",
-    "static/media/pic1.png": "/darkhandeed/static/media/pic1.21cfadf1c18ac7459e39.png",
-    "static/media/part-two-pic.png": "/darkhandeed/static/media/part-two-pic.d6c66503094de96eea92.png",
-    "static/media/main_logo.png": "/darkhandeed/static/media/main_logo.369eb71d0c7e9d42d66e.png",
-    "static/media/logo_name.png": "/darkhandeed/static/media/logo_name.4f29502b3c3a12f521d4.png",
-    "static/media/3.jpeg": "/darkhandeed/static/media/3.8288b42a7220896f0464.jpeg",
-    "static/media/background-2.png": "/darkhandeed/static/media/background-2.33f04b0de70fb2d0206e.png",
-    "index.html": "/darkhandeed/index.html",
-    "main.b223a9df.css.map": "/darkhandeed/static/css/main.b223a9df.css.map",
-    "main.2651787f.js.map": "/darkhandeed/static/js/main.2651787f.js.map",
-    "787.52fe08d9.chunk.js.map": "/darkhandeed/static/js/787.52fe08d9.chunk.js.map"
+    "main.css": "/static/css/main.36b03cd5.css",
+    "main.js": "/static/js/main.daa8e7b7.js",
+    "static/js/787.52fe08d9.chunk.js": "/static/js/787.52fe08d9.chunk.js",
+    "static/media/1.jpeg": "/static/media/1.0b7f4142f7296efa05a8.jpeg",
+    "static/media/2.jpeg": "/static/media/2.5cc7dd75aacb8bab042a.jpeg",
+    "static/media/main_logo.png": "/static/media/main_logo.369eb71d0c7e9d42d66e.png",
+    "static/media/logo_name.png": "/static/media/logo_name.4f29502b3c3a12f521d4.png",
+    "static/media/3.jpeg": "/static/media/3.8288b42a7220896f0464.jpeg",
+    "static/media/background-2.png": "/static/media/background-2.33f04b0de70fb2d0206e.png",
+    "index.html": "/index.html",
+    "main.36b03cd5.css.map": "/static/css/main.36b03cd5.css.map",
+    "main.daa8e7b7.js.map": "/static/js/main.daa8e7b7.js.map",
+    "787.52fe08d9.chunk.js.map": "/static/js/787.52fe08d9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b223a9df.css",
-    "static/js/main.2651787f.js"
+    "static/css/main.36b03cd5.css",
+    "static/js/main.daa8e7b7.js"
   ]
 }

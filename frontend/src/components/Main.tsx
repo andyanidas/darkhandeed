@@ -3,7 +3,7 @@ import "../style/main.css";
 import partTwoPic from "../images/pictures/part-two-pic.png";
 import { Carousel } from "react-bootstrap";
 import { images } from "../services/otherServices";
-import useFetch from "../customHooks/useFetch";
+import { useFetch } from "../customHooks/useFetch";
 import NewsCard from "./NewsCard";
 import { News } from "../types/fetch";
 import { Container } from "react-bootstrap";
@@ -16,34 +16,93 @@ interface Content {
     publishedAt: Date;
     title: string;
     updatedAt: Date;
+    imageUrl?: string;
   };
 }
 
-const partTwoStyle = {
-  backgroundImage:
-    "url(" +
-    "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" +
-    ")",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-};
+// const partTwoStyle = {
+//   backgroundImage:
+//     "url(" +
+//     "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" +
+//     ")",
+//   backgroundPosition: "center",
+//   backgroundSize: "cover",
+//   backgroundRepeat: "no-repeat",
+// };
 export default function Main() {
   const { loading, error, data } = useFetch("posts");
-  const [about, setAbout] = useState<Content | undefined>();
+  const [part1, setPart1] = useState<Content | undefined>();
+  const [part2, setPart2] = useState<Content[] | undefined>();
+  const [part3, setPart3] = useState<Content | undefined>();
   const contents = useContent();
   useEffect(() => {
-    setAbout(contents.find((content) => content.id === 1));
+    setPart1(contents?.find((content) => content.id === 1));
+    setPart2(
+      contents?.filter(
+        (content) =>
+          content.attributes.title === "1/3" ||
+          content.attributes.title === "2/3" ||
+          content.attributes.title === "3/3"
+      )
+    );
+    // setPart2(
+    //   contents.filter((contents) => contents?.attributes?.title === "1/3")
+    // );
   }, [contents]);
   const partTwoStyle = {
-    backgroundImage:
-      "url(" +
-      "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" +
-      ")",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    width: " 30%",
+    height: "30vh",
+    display: "flex",
+    justifyContent: "space-between",
   };
+  const partTwo1 = {
+    backgroundImage:
+      "url(" + `${part2 ? part2[0]?.attributes?.imageUrl : ""}` + ")",
+  };
+  const partTwo2 = {
+    backgroundImage:
+      "url(" + `${part2 ? part2[1]?.attributes?.imageUrl : ""}` + ")",
+  };
+  const partTwo3 = {
+    backgroundImage:
+      "url(" + `${part2 ? part2[2]?.attributes?.imageUrl : ""}` + ")",
+  };
+  const part2Style = [
+    { ...partTwoStyle, ...partTwo1 },
+    { ...partTwoStyle, ...partTwo2 },
+    { ...partTwoStyle, ...partTwo3 },
+  ];
+  const styles = {
+    part1: {},
+    part2: {},
+    part3: {
+      container: {
+        marginTop: "10vh",
+        marginBottom: "10vh",
+        boxShadow: "10px 10px 20px black",
+        padding: " 40px",
+        borderRadius: "20px",
+        textAlign: "center" as "center",
+      },
+      header: {
+        backgroundColor: " rgba(50, 49, 111, 0.321)",
+        height: "40px",
+        width: "300px",
+        borderRadius: "30px",
+        textAlign: "center" as "center",
+      },
+      items: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      },
+    },
+    part4: {},
+  };
+
   return (
     <div className="main">
       <Carousel>
@@ -87,20 +146,14 @@ export default function Main() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Container className="carausel order-1">
-        <div className="part-two">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Container>
+
       <Container>
         <div className="d-flex align-items-center mt-4">
           <div>
             <h1 className="font-weight-bold text-uppercase ms-4">
-              {about && about?.attributes["title"]}
+              {part1 && part1?.attributes["title"]}
             </h1>
-            <p>{about && about?.attributes["body"]}</p>
+            <p>{part1 && part1?.attributes["body"]}</p>
           </div>
           <img src="./pictures/back-to-school.png" alt="" className="w-30" />
         </div>
@@ -116,15 +169,31 @@ export default function Main() {
             on time and maintain the top-notch code standards.
           </p>
         </div>
-        <div className="part-two">
-          <div>
-            <img src="" alt="" />
+        <div className="part-two d-flex w-100">
+          <div style={part2Style[0]}>
+            <div>
+              <h1>{part2 && part2[0]?.attributes?.body}</h1>
+            </div>
+          </div>
+          <div style={part2Style[1]}>
+            <div>
+              <h1>{part2 && part2[1]?.attributes?.body}</h1>
+            </div>
+          </div>
+          <div style={part2Style[2]}>
+            <div>
+              <h1>{part2 && part2[2]?.attributes?.body}</h1>
+            </div>
           </div>
         </div>
-        <div className="part-three">
-          {data?.data.map((data: News) => (
-            <NewsCard key={data.id} {...data} />
-          ))}
+        <div style={styles.part3.container}>
+          <p>МЭДЭЭ</p>
+          <h2>СОНИН САЙХАН</h2>
+          <div style={styles.part3.items}>
+            {data?.data.slice(0, 4).map((data: News) => (
+              <NewsCard key={data.id} {...data} />
+            ))}
+          </div>
         </div>
         <div className="part-four">
           <div className="texts">

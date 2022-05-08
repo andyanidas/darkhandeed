@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FetchHook, News, Method } from "../types/fetch";
 import { URL } from "../util/constants";
 
-export default function useFetch(url: string, method?: Method): FetchHook {
+export function useFetch(url: string, method?: Method): FetchHook {
   const [data, setData] = useState<{ data: Array<News>; meta: object } | null>(
     null
   );
@@ -29,6 +29,5 @@ export default function useFetch(url: string, method?: Method): FetchHook {
     };
     fetchData();
   }, [url]);
-  debugger;
   return { loading, error, data };
 }
