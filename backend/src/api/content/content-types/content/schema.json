@@ -20,6 +20,9 @@
     },
     "imageUrl": {
       "type": "string"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
